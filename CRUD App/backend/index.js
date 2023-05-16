@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 mongoose
   .connect(CONNECTION_URL)
   .then(() => {
-    app.listen('3000', () => {
+    app.listen('5000', () => {
       console.log('Connected to database and listening to port 3000');
     });
   })
