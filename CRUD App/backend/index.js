@@ -1,10 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import postRoutes from './routes/posts.js';
 
 let app = express();
 const CONNECTION_URL =
   'mongodb+srv://prajwalgadhave:Prajwal123@social-media-app.42giswj.mongodb.net/?retryWrites=true&w=majority';
 
+app.use('/', postRoutes);
 app.get('/', (req, res) => {
   res.send('Hello There');
 });
@@ -17,17 +19,3 @@ mongoose
     });
   })
   .catch((err) => console.log(err));
-
-const MsgSchema = new mongoose.Schema({
-  name: String,
-  roll: Number,
-});
-
-const MsgModel = mongoose.model('MsgModel', MsgSchema);
-
-const prajwal = new MsgModel({
-  name: 'Prajwal',
-  roll: 21150,
-});
-
-// prajwal.save();
