@@ -47,3 +47,15 @@ export const updatePost = async (req, res) => {
     console.log(error);
   }
 };
+
+export const handlePostReq = async (req, res) => {
+  try {
+    let { id } = req.params;
+    res.status(200).json({
+      msg: 'Success',
+      payload: id,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
