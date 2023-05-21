@@ -1,3 +1,4 @@
+import formModel from '../models/form.js';
 import postModel from '../models/posts.js';
 
 export const getPost = async (req, res) => {
@@ -54,6 +55,26 @@ export const handlePostReq = async (req, res) => {
     res.status(200).json({
       msg: 'Success',
       payload: id,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const createPosts = async (req, res) => {
+  try {
+    let { name, email, phoneNo } = req.body;
+    const newPost = new formModel({
+      name: name,
+      email: email,
+      phoneNo: phoneNo,
+    });
+
+    newPost.save().then((data) => {
+      res.status(200).json({
+        msg: 'Account Created Successfully',
+        info: data,
+      });
     });
   } catch (error) {
     console.log(error);

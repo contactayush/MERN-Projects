@@ -21,3 +21,13 @@ export const handlePost = async (id) => {
     console.log(error);
   }
 };
+
+export const createPost = async (postDetails) => {
+  try {
+    let { data } = await axios.post(`${url}/createPost`, postDetails);
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -7,6 +7,8 @@ let app = express();
 const CONNECTION_URL =
   'mongodb+srv://prajwalgadhave:Prajwal123@social-media-app.42giswj.mongodb.net/?retryWrites=true&w=majority';
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ extended: true }));
 app.use(cors());
 app.use('/', postRoutes);
 app.get('/', (req, res) => {

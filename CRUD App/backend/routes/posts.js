@@ -1,6 +1,7 @@
 import express from 'express';
 import {
   createPost,
+  createPosts,
   getPost,
   handlePostReq,
   updatePost,
@@ -15,5 +16,7 @@ router.get('/new/post', createPost);
 router.get('/new/post/update', updatePost);
 
 router.post('/new/:id', handlePostReq);
+
+router.post('/createPost', createPosts);
 
 export default router;
