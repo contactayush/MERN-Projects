@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import postRoutes from './routes/posts.js';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 let app = express();
 const CONNECTION_URL =
@@ -14,12 +15,13 @@ app.use('/', postRoutes);
 app.get('/', (req, res) => {
   res.send('Hello There');
 });
+dotenv.config();
 
 mongoose
   .connect(CONNECTION_URL)
   .then(() => {
-    app.listen('5000', () => {
-      console.log('Connected to database and listening to port 3000');
+    app.listen(process.env.PORT_NO, () => {
+      console.log('Connected to database and listening to port 5000');
     });
   })
   .catch((err) => console.log(err));
